@@ -21,6 +21,17 @@ class HomeController extends Controller {
     const content = fs.readFileSync(path.resolve(dir, filename)).toString("utf-8");
     this.ctx.body = content;
   }
+
+  async saveFile() {
+    const {
+      filename,
+      content
+    } = this.ctx.request.body;
+    fs.writeFileSync(path.resolve(dir, filename), content);
+    this.ctx.body = {
+      status: 200
+    }
+  }
 }
 
 module.exports = HomeController;

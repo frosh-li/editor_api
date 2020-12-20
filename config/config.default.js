@@ -20,8 +20,13 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
+    security: {
+      csrf: false,
+    }
+    
     // myAppName: 'egg',
   };
+  
 
   return {
     ...config,
